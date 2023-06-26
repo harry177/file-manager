@@ -2,6 +2,9 @@ import * as readline from "node:readline/promises";
 import { stdin as input, stdout as output, chdir } from "node:process";
 import { currentDir } from "./subprograms/currentDir.js";
 import os from "node:os";
+import { read } from "./subprograms/fs/read.js";
+import { create } from "./subprograms/fs/create.js";
+import { rename } from "./subprograms/fs/rename.js";
 
 const launchApp = async () => {
   const username = process.argv[2]
@@ -22,6 +25,12 @@ const launchApp = async () => {
         console.log(`Thank you for using File Manager, ${username}, goodbye!`);
       });
     }
+    const command = input.split(" ")[0];
+    const action = input.split(" ")[1];
+    const secondAction = input.split(" ")[2];
+    if (command === "cat") read(action);
+    if (command === "add") create(action);
+    if (command === "rn") rename(action, secondAction);
   });
 };
 
