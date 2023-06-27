@@ -8,6 +8,8 @@ import { rename } from "./subprograms/fs/rename.js";
 import { copy } from "./subprograms/fs/copy.js";
 import { move } from "./subprograms/fs/move.js";
 import { remove } from "./subprograms/fs/delete.js";
+import { goUp } from "./subprograms/nav/goUp.js";
+import { goDest } from "./subprograms/nav/goDest.js";
 
 const launchApp = async () => {
   const username = process.argv[2]
@@ -37,6 +39,8 @@ const launchApp = async () => {
     if (command === "cp") copy(action, secondAction);
     if (command === "mv") move(action, secondAction);
     if (command === "rm") remove(action);
+    if (command === "up") goUp();
+    if (command === "cd") goDest(action);
   });
 };
 
