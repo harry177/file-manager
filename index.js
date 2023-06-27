@@ -5,6 +5,9 @@ import os from "node:os";
 import { read } from "./subprograms/fs/read.js";
 import { create } from "./subprograms/fs/create.js";
 import { rename } from "./subprograms/fs/rename.js";
+import { copy } from "./subprograms/fs/copy.js";
+import { move } from "./subprograms/fs/move.js";
+import { remove } from "./subprograms/fs/delete.js";
 
 const launchApp = async () => {
   const username = process.argv[2]
@@ -31,6 +34,9 @@ const launchApp = async () => {
     if (command === "cat") read(action);
     if (command === "add") create(action);
     if (command === "rn") rename(action, secondAction);
+    if (command === "cp") copy(action, secondAction);
+    if (command === "mv") move(action, secondAction);
+    if (command === "rm") remove(action);
   });
 };
 
