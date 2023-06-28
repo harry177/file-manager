@@ -11,6 +11,11 @@ import { remove } from "./subprograms/fs/delete.js";
 import { goUp } from "./subprograms/nav/goUp.js";
 import { goDest } from "./subprograms/nav/goDest.js";
 import { list } from "./subprograms/nav/list.js";
+import { getEOL } from "./subprograms/os/getEOL.js";
+import { getHost } from "./subprograms/os/getHost.js";
+import { getHomedir } from "./subprograms/os/getHomedir.js";
+import { getSysUsername } from "./subprograms/os/getSysUsername.js";
+import { getArch } from "./subprograms/os/getArch.js";
 
 const launchApp = async () => {
   const username = process.argv[2]
@@ -43,6 +48,11 @@ const launchApp = async () => {
     if (command === "up") goUp();
     if (command === "cd") goDest(action);
     if (command === "ls") list();
+    if (command === "os" && action === "--EOL") getEOL();
+    if (command === "os" && action === "--cpus") getHost();
+    if (command === "os" && action === "--homedir") getHomedir();
+    if (command === "os" && action === "--username") getSysUsername();
+    if (command === "os" && action === "--architecture") getArch();
   });
 };
 
