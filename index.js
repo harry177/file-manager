@@ -17,6 +17,8 @@ import { getHomedir } from "./subprograms/os/getHomedir.js";
 import { getSysUsername } from "./subprograms/os/getSysUsername.js";
 import { getArch } from "./subprograms/os/getArch.js";
 import { hash } from "./subprograms/hash/hash.js";
+import { compress } from "./subprograms/zip/compress.js";
+import { decompress } from "./subprograms/zip/decompress.js";
 
 const launchApp = async () => {
   const username = process.argv[2]
@@ -55,6 +57,8 @@ const launchApp = async () => {
     if (command === "os" && action === "--username") getSysUsername();
     if (command === "os" && action === "--architecture") getArch();
     if (command === "hash") hash(action);
+    if (command === "compress") compress(action, secondAction);
+    if (command === "decompress") decompress(action, secondAction);
   });
 };
 
