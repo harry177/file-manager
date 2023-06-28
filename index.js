@@ -10,6 +10,7 @@ import { move } from "./subprograms/fs/move.js";
 import { remove } from "./subprograms/fs/delete.js";
 import { goUp } from "./subprograms/nav/goUp.js";
 import { goDest } from "./subprograms/nav/goDest.js";
+import { list } from "./subprograms/nav/list.js";
 
 const launchApp = async () => {
   const username = process.argv[2]
@@ -41,6 +42,7 @@ const launchApp = async () => {
     if (command === "rm") remove(action);
     if (command === "up") goUp();
     if (command === "cd") goDest(action);
+    if (command === "ls") list();
   });
 };
 
